@@ -10,14 +10,41 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var sideMenuAction: UIBarButtonItem!
+    
+    @IBOutlet weak var leadingConstant: NSLayoutConstraint!
+    
+    @IBOutlet weak var sideShow: UIView!
+    
+    var sidebar = false
+    
+    @IBAction func sideAction(_ sender: UIBarButtonItem) {
+        
+        if(sidebar){
+            leadingConstant.constant = 0
+         
+        }
+        else{
+            
+         leadingConstant.constant = -150
+            UIView.animate(withDuration: 0.3) {
+                self.sideShow.layoutIfNeeded()
+            }
+        }
+       sidebar = !sidebar
+        
+        
+    }
+    
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
+       
+      
     }
 
 
